@@ -3,7 +3,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+  <meta name="viewport" content="width=375, initial-scale=1.0">
   <!-- Bootstrap 5.3.3 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -22,12 +23,11 @@
       font-size: 32px;
     }
 
-    div,
-    span,
-    button,
-    img {
-      box-sizing: border-box;
-    }
+    /* .modal-dialog {
+      margin-top: 50%;
+      margin-left: auto;
+      margin-right: auto;
+    } */
   </style>
 </head>
 
@@ -37,109 +37,67 @@
   </header>
   <div class="py-5">
     <!-- header -->
-    <div class="px-3 row fixed-top bg-white my-5">
-      <button id="btnS" class="col-2 ms-1 my-2 btn btn-outline-secondary md-18 active"><b>單品</b></button>
-      <button id="btnM" class="col-2 ms-2 my-2 btn btn-outline-secondary md-18"><b>穿搭</b></button>
-      <span class="material-symbols-outlined md-32 col-5 my-3">
-        add_circle
-      </span>
-      <span class="material-symbols-outlined md-32 col-1 my-3 ms-3">
-        image_search
-      </span>
+    <div class="container-fluid fixed-top bg-white my-5">
+      <!-- <div class="px-3 row   my-5"> -->
+      <div class="row align-items-center">
+        <a href="./index.html" class="col-3 ms-2 my-2 btn btn-outline-secondary md-18 active"><b>單品</b></a>
+  
+        <a href="./closet_match.html" class="col-3 ms-2 my-2 btn btn-outline-secondary md-18"><b>穿搭</b></a>
+
+        <!-- <span class="material-symbols-outlined md-32 col-5 my-3" type="button" data-bs-toggle="modal"
+          data-bs-target="#exampleModal">
+          add_circle
+        </span> -->
+        <img src="./icons/add.svg" class="col-5 me-5" style="width: 55px;" alt="add">
+  
+        <img src="./icons/pic-search.svg" class="col-1 me-1 mx-auto d-block" style="width: 55px;" alt="search">
+
+      </div>
     </div>
 
     <!-- body Single Products-->
-    <div id="bodyS" class="row mt-5 pt-3 pb-3">
-      <!-- 部位1：上身 -->
+    <div id="bodyS" class="row mt-5 pt-2 pb-3">
+      <!-- 部位 -->
       <div class="border-top">
         <span class="px-3 md-18">上身</span>
-        <img class="border rounded my-2 me-1" width="120px" height="120px" src="./img/eg1.jpg" alt="loading...">
-        <img class="border rounded my-2 me-1" width="120px" height="120px" src="./img/eg2.jpg" alt="loading...">
-        <span class="material-symbols-outlined md-32 me-1" style="vertical-align: middle;">
-          pending
-        </span>
+        <img class="border rounded my-2 me-1" width="125px" height="125px" src="./img/eg1.jpg" alt="loading...">
+        <img class="border rounded my-2 me-1" width="125px" height="125px" src="./img/eg2.jpg" alt="loading...">
+        <a href="./s_upper.html"><img src="icons/dot-pending.svg" style="width: 30px;" alt="more"></a>
       </div>
 
-      <!-- 部位2：下身 -->
+      <!-- 部位 -->
       <div class="border-top">
         <span class="px-3 md-18">下身</span>
-        <img class="border rounded my-2 me-1" width="120px" height="120px" src="./img/eg1.jpg" alt="loading...">
-        <img class="border rounded my-2 me-1" width="120px" height="120px" src="./img/eg2.jpg" alt="loading...">
-        <span class="material-symbols-outlined md-32 me-1" style="vertical-align: middle;">
-          pending
-        </span>
+        <img class="border rounded my-2 me-1" width="125px" height="125px" src="./img/eg1.jpg" alt="loading...">
+        <img class="border rounded my-2 me-1" width="125px" height="125px" src="./img/eg2.jpg" alt="loading...">
+        <img src="icons/dot-pending.svg" style="width: 30px;" alt="more">
       </div>
 
-      <!-- 部位3：鞋子 -->
+      <!-- 部位 -->
       <div class="border-top">
         <span class="px-3 md-18">鞋子</span>
-        <img class="border rounded my-2 me-1" width="120px" height="120px" src="./img/eg1.jpg" alt="loading...">
-        <img class="border rounded my-2 me-1" width="120px" height="120px" src="./img/eg2.jpg" alt="loading...">
-        <span class="material-symbols-outlined md-32 me-1" style="vertical-align: middle;">
-          pending
-        </span>
+        <img class="border rounded my-2 me-1" width="125px" height="125px" src="./img/eg1.jpg" alt="loading...">
+        <img class="border rounded my-2 me-1" width="125px" height="125px" src="./img/eg2.jpg" alt="loading...">
+        <img src="icons/dot-pending.svg" style="width: 30px;" alt="more">
       </div>
-      
-      <!-- 部位4：配件 -->
+
+      <!-- 部位 -->
       <div class="border-top border-bottom">
         <span class="px-3 md-18">配件</span>
-        <img class="border rounded my-2 me-1" width="120px" height="120px" src="./img/eg1.jpg" alt="loading...">
-        <img class="border rounded my-2 me-1" width="120px" height="120px" src="./img/eg2.jpg" alt="loading...">
-        <span class="material-symbols-outlined md-32 me-1" style="vertical-align: middle;">
-          pending
-        </span>
+        <img class="border rounded my-2 me-1" width="125px" height="125px" src="./img/eg1.jpg" alt="loading...">
+        <img class="border rounded my-2 me-1" width="125px" height="125px" src="./img/eg2.jpg" alt="loading...">
+        <img src="icons/dot-pending.svg" style="width: 30px;" alt="more">
       </div>
 
     </div>
 
-    <!-- body Matches -->
-    <div id="bodyM" class="row mt-5 mb-3 pb-3 d-none">
-      <!-- 搭配1 -->
-      <div class="col-6 pt-3 ps-4">
-        <p class="mb-1 ps-1 md-18">穿搭標題1</p>
-        <img class="border rounded" src="./img/eg5.jpg" width="160" height="220" alt="loading...">
-      </div>
-
-      <!-- 搭配2 -->
-      <div class="col-6 pt-3 pe-4">
-        <p class="mb-1 ps-1 md-18">穿搭標題2</p>
-        <img class="border rounded " src="./img/eg4.jpg" width="160" height="220" alt="loading...">
-      </div>
-
-      <!-- 搭配3 -->
-      <div class="col-6 pt-3 ps-4">
-        <p class="mb-1 ps-1 md-18">穿搭標題3</p>
-        <img class="border rounded " src="./img/eg3.jpg" width="160" height="220" alt="loading...">
-      </div>
-
-    </div>
   </div>
   <nav class="bg-warning pb-4 fixed-bottom">this is navigation bar</nav>
+
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
-  <script>
-    function changeToM() {
-      // 改變btn顏色
-      btnS.classList.remove('active');
-      btnM.classList.add('active');
-      // 改變顯示內容div
-      bodyS.classList.add('d-none');
-      bodyM.classList.remove('d-none');
-    }
-    btnM.onclick = changeToM;
-    function changeToS() {
-      // 改變btn顏色
-      btnM.classList.remove('active');
-      btnS.classList.add('active');
-      // 改變顯示內容div
-      bodyS.classList.remove('d-none');
-      bodyM.classList.add('d-none');
-    }
-    btnS.onclick = changeToS;
-
-  </script>
 </body>
 
 </html>
