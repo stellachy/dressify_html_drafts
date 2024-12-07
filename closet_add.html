@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+  <meta name="viewport" content="width=375, initial-scale=1.0">
+  <!-- Bootstrap 5.3.3 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <style>
+    img {
+      object-fit: contain;
+    }
+
+    .md-18 {
+      font-size: 18px;
+    }
+
+    .md-24 {
+      font-size: 24px;
+    }
+
+    .material-symbols-outlined.md-32 {
+      font-size: 32px;
+    }
+
+    #addPopM {
+      transform: translateY(100%);  /* 初始滑出畫面外 */
+      transition: transform 0.5s ease;  /* 平滑過渡效果 */
+    }
+
+    #addPopM.show {
+      transform: translateY(0); /* 滑入畫面 */
+    }
+  </style>
+</head>
+
+<body>
+  <header class="bg-warning pb-5 fixed-top">
+    <h1>Dressify Header</h1>
+  </header>
+  <div class="pt-5">
+    <!-- header -->
+    <div class="container-fluid fixed-top bg-light my-5">
+      <div class="row align-items-center">
+        <a href="./index.html" class="col-2 ms-2 my-2 btn btn-outline-secondary md-18"><b>單品</b></a>
+
+        <a href="./closet_match.html" class="col-2 ms-2 my-2 btn btn-outline-secondary md-18"><b>穿搭</b></a>
+
+        <a href="./closet_add.html" class="col-5"><img src="./icons/add.svg" style="width: 32px;" alt="add"></a>
+
+        <a href="./closet_search.html" class="col-1 ms-3"><img src="./icons/pic-search.svg" style="width: 30px;"
+            alt="search"></a>
+
+      </div>
+    </div>
+
+    <div id="addOverlay" class="mt-5 p-2 bg-dark bg-opacity-25" style="height: 600px;">
+      <div class="bg-light position-fixed" style="width: 200px; top: 125px; margin-left: 15%;">
+        <div id="addBtnS" class="border-bottom border-2 md-24 text-center py-3 text-secondary"><img
+            src="./icons/add_single.svg" class="align-text-bottom opacity-50" style="width: 26px;"
+            alt="one"><span>&nbsp;&nbsp;新增單品</span></div>
+
+        <div id="addBtnM" class="md-24 text-center py-3 text-secondary"><img src="./icons/add_match.svg"
+            class="align-text-bottom opacity-50" style="width: 30px;" alt="set"><span>&nbsp;&nbsp;新增穿搭</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="addPopM" class="fixed-bottom bg-light rounded-top" style="height: 220px;"> 
+    <div class="mx-5 my-3 pt-3">
+      <!-- href needs to be set for redirecting -->
+      <a href="#" class="btn btn-dark md md-24 p-3" style="width: 275px;">
+        <img src="./icons/add_match_closet_white.svg" class="align-text-bottom" style="width: 26px;">
+        <span class="md-24">&nbsp;&nbsp;衣櫃搭配</span>
+      </a>
+    </div>
+    <div class="mx-5 my-3">
+      <!-- href needs to be set for redirecting -->
+      <a href="#" class="btn btn-dark md md-24 p-3" style="width: 275px;">
+        <img src="./icons/add_match_pic_white.svg" class="align-middle" style="width: 26px;">
+        <span class="md-24">&nbsp;&nbsp;上傳圖片</span>
+      </a>
+    </div>
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script>
+    const divElemS = document.getElementById('addBtnS');
+    const divElemM = document.getElementById('addBtnM');
+    const divPopM = document.getElementById('addPopM');
+
+    function handleClickAddS() {
+      // 圖片與文字改為黑色
+      divElemS.classList.toggle('text-dark');
+      divElemS.childNodes[0].classList.toggle('opacity-50');
+      // the following is for redirecting to 1.2.21
+      // location.href = './index.html';
+    }
+    divElemS.onclick = handleClickAddS;
+
+    function handleClickAddM() {
+      // 圖片與文字改為黑色
+      divElemM.classList.toggle('text-dark');
+      divElemM.childNodes[0].classList.toggle('opacity-50');
+
+      // 滑出popout選擇新增搭配的方式
+      divPopM.classList.toggle('show');
+    }
+    divElemM.onclick = handleClickAddM;
+
+    // 控制overlay => 點擊後會回到單品區域 （此可考慮整個移至index.html）
+    function handleOverlay() {
+      if (!divElemS.contains(event.target) 
+          && !divElemM.contains(event.target)
+          && !divPopM.contains(event.target)) {
+        location.href = './index.html'
+      }      
+    }
+    document.onclick = handleOverlay;
+  </script>
+</body>
+
+</html>
