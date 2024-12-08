@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <meta name="viewport" content="width=375, initial-scale=1.0"> -->
+  <!-- Bootstrap 5.3.3 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <style>
+    img {
+      object-fit: contain;
+    }
+
+    .md-18 {
+      font-size: 18px;
+    }
+
+    .material-symbols-outlined.md-32 {
+      font-size: 32px;
+    }
+
+    .accordion-button:not(.collapsed) {
+      color: lightslategray;
+      background-color: lightgrey;
+      /* box-shadow: none; 移除陰影效果 */
+    }
+
+    .accordion-button:focus {
+      outline: 2px solid darkgray;
+      box-shadow: 0 0 0 0.2rem rgba(169, 169, 169, 0.25);
+    }
+  </style>
+</head>
+
+<body>
+  <header class="bg-warning pb-5 fixed-top">
+    <h1>Dressify Header</h1>
+  </header>
+  <div class="py-5">
+    <!-- header -->
+    <div class="container-fluid fixed-top bg-light my-5">
+      <div class="row align-items-center">
+        <a href="./index.html" class="col-2 ms-2 my-2 btn btn-outline-secondary md-18 active"><b>單品</b></a>
+
+        <a href="./closet_match.html" class="col-2 ms-2 my-2 btn btn-outline-secondary md-18"><b>穿搭</b></a>
+
+        <a href="./closet_add.html" class="col-5"><img src="./icons/add.svg" style="width: 32px;" alt="add"></a>
+
+        <a href="./closet_search.html" class="col-1 ms-3"><img src="./icons/pic-search.svg" style="width: 30px;"
+            alt="search"></a>
+      </div>
+    </div>
+
+    <!-- accordion body for items -->
+    <div class="accordion mt-5 pt-2" id="accordionItems">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+            aria-expanded="true" aria-controls="collapseOne">
+            <strong class="md-18">上身</strong>
+          </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+          data-bs-parent="#accordionItems">
+          <div class="accordion-body">
+
+            <strong class="text-secondary md-18">外套</strong>
+            <div class="row">
+              <div class="item col-4">
+                <img class="border rounded my-2 me-1" width="95px" src="./icons/items/item1.svg">
+                <div class="text-center">羽絨外套</div>
+              </div>
+
+              <div class="item col-4">
+                <img class="border rounded my-2 me-1" width="95px" src="./icons/items/item2.svg">
+                <div class="text-center">西裝外套</div>
+              </div>
+
+              <div class="item col-4">
+                <img class="border rounded my-2 me-1" width="95px" src="./icons/items/item3.svg">
+                <div class="text-center">大衣外套</div>
+              </div>
+            </div>
+
+            <br />
+            <strong class="text-secondary md-18">襯衫</strong>
+            <div class="row">
+              <div class="item col-4">
+                <img class="border rounded my-2 me-1" width="95px" src="./icons/items/item4.svg">
+                <div class="text-center">商務襯衫</div>
+              </div>
+
+              <div class="item col-4">
+                <img class="border rounded my-2 me-1" width="95px" src="./icons/items/item5.svg">
+                <div class="text-center">休閒襯衫</div>
+              </div>
+
+              <div class="item col-4">
+                <img class="border rounded my-2 me-1" width="95px" src="./icons/items/item6.svg">
+                <div class="text-center">Polo衫</div>
+              </div>
+            </div>
+
+            <br />
+            <strong class="text-secondary md-18">T-shirt</strong>
+            <div class="row">
+              <div class="item col-4">
+                <img class="border rounded my-2 me-1" width="95px" src="./icons/items/item7.svg">
+                <div class="text-center">長袖</div>
+              </div>
+
+              <div class="item col-4">
+                <img class="border rounded my-2 me-1" width="95px" src="./icons/items/item8.svg">
+                <div class="text-center">短袖</div>
+              </div>
+
+              <div class="item col-4">
+                <img class="border rounded my-2 me-1" width="95px" src="./icons/items/item9.svg">
+                <div class="text-center">連帽</div>
+              </div>
+            </div>
+
+            <br />
+            <strong class="text-secondary md-18">其他</strong>
+            <div class="row">
+              <div class="item col-4">
+                <img class="border rounded my-2 me-1" width="95px" src="./icons/items/item10.svg">
+                <div class="text-center">毛衣/針織</div>
+              </div>
+
+              <div class="item col-4">
+                <img class="border rounded my-2 me-1" width="95px" src="./icons/items/item11.svg">
+                <div class="text-center">連身褲/裙</div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingTwo">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            <strong class="md-18">下身</strong>
+          </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+          data-bs-parent="#accordionItems">
+          <div class="accordion-body">
+
+            <strong class="text-secondary md-18">褲子</strong>
+            <div class="row">
+              <div class="item col-4">
+                <img class="border rounded my-2 me-1" width="95px" src="./icons/items/item12.svg">
+                <div class="text-center">牛仔褲</div>
+              </div>
+
+              <div class="item col-4">
+                <img class="border rounded my-2 me-1" width="95px" src="./icons/items/item13.svg">
+                <div class="text-center">西裝褲</div>
+              </div>
+
+              <div class="item col-4">
+                <img class="border rounded my-2 me-1" width="95px" src="./icons/items/item14.svg">
+                <div class="text-center">工裝褲</div>
+              </div>
+
+              <div class="item col-4">
+                <img class="border rounded my-2 me-1" width="95px" src="./icons/items/item15.svg">
+                <div class="text-center">棉褲</div>
+              </div>
+
+              <div class="item col-4">
+                <img class="border rounded my-2 me-1" width="95px" src="./icons/items/item16.svg">
+                <div class="text-center">九分褲</div>
+              </div>
+
+              <div class="item col-4">
+                <img class="border rounded my-2 me-1" width="95px" src="./icons/items/item17.svg">
+                <div class="text-center">卡其褲</div>
+              </div>
+
+              <div class="item col-4">
+                <img class="border rounded my-2 me-1" width="95px" src="./icons/items/item18.svg">
+                <div class="text-center">寬褲</div>
+              </div>
+
+              <div class="item col-4">
+                <img class="border rounded my-2 me-1" width="95px" src="./icons/items/item19.svg">
+                <div class="text-center">短褲</div>
+              </div>
+
+            </div>
+
+            <br />
+            <strong class="text-secondary md-18">裙子</strong>
+            <div class="row">
+              <div class="item col-4">
+                <img class="border rounded my-2 me-1" width="95px" src="./icons/items/item20.svg">
+                <div class="text-center">長裙</div>
+              </div>
+
+              <div class="item col-4">
+                <img class="border rounded my-2 me-1" width="95px" src="./icons/items/item21.svg">
+                <div class="text-center">短裙</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            <strong class="md-18">鞋子</strong>
+          </button>
+        </h2>
+        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+          data-bs-parent="#accordionItems">
+          <div class="accordion-body">
+
+            <div class="row">
+              <div class="item col-4">
+                <img class="border rounded my-2 me-1" width="95px" src="./icons/items/item22.svg">
+                <div class="text-center">拖鞋/涼鞋</div>
+              </div>
+
+              <div class="item col-4">
+                <img class="border rounded my-2 me-1" width="95px" src="./icons/items/item23.svg">
+                <div class="text-center">運動鞋</div>
+              </div>
+
+              <div class="item col-4">
+                <img class="border rounded my-2 me-1" width="95px" src="./icons/items/item24.svg">
+                <div class="text-center">休閒鞋</div>
+              </div>
+
+              <div class="item col-4">
+                <img class="border rounded my-2 me-1" width="95px" src="./icons/items/item25.svg">
+                <div class="text-center">高跟鞋</div>
+              </div>
+
+              <div class="item col-4">
+                <img class="border rounded my-2 me-1" width="95px" src="./icons/items/item26.svg">
+                <div class="text-center">皮鞋</div>
+              </div>
+
+              <div class="item col-4">
+                <img class="border rounded my-2 me-1" width="95px" src="./icons/items/item27.svg">
+                <div class="text-center">靴子</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingFour">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+            <strong class="md-18">配件</strong>
+          </button>
+        </h2>
+        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+          data-bs-parent="#accordionItems">
+          <div class="accordion-body">
+
+            <strong class="text-secondary md-18">帽子</strong>
+            <div class="row">
+              <div class="item col-4">
+                <img class="border rounded my-2 me-1" width="95px" src="./icons/items/item28.svg">
+                <div class="text-center">毛帽</div>
+              </div>
+
+              <div class="item col-4">
+                <img class="border rounded my-2 me-1" width="95px" src="./icons/items/item29.svg">
+                <div class="text-center">棒球帽</div>
+              </div>
+
+              <div class="item col-4">
+                <img class="border rounded my-2 me-1" width="95px" src="./icons/items/item30.svg">
+                <div class="text-center">漁夫帽</div>
+              </div>
+
+              <div class="item col-4">
+                <img class="border rounded my-2 me-1" width="95px" src="./icons/items/item31.svg">
+                <div class="text-center">貝雷帽</div>
+              </div>
+
+              <div class="item col-4">
+                <img class="border rounded my-2 me-1" width="95px" src="./icons/items/item32.svg">
+                <div class="text-center">草帽</div>
+              </div>
+
+              <div class="item col-4">
+                <img class="border rounded my-2 me-1" width="95px" src="./icons/items/item33.svg">
+                <div class="text-center">紳士帽</div>
+              </div>
+            </div>
+
+            <br />
+            <strong class="text-secondary md-18">包包</strong>
+            <div class="row">
+              <div class="item col-4">
+                <img class="border rounded my-2 me-1" width="95px" src="./icons/items/item34.svg">
+                <div class="text-center">後背包</div>
+              </div>
+
+              <div class="item col-4">
+                <img class="border rounded my-2 me-1" width="95px" src="./icons/items/item35.svg">
+                <div class="text-center">側背包</div>
+              </div>
+
+              <div class="item col-4">
+                <img class="border rounded my-2 me-1" width="95px" src="./icons/items/item36.svg">
+                <div class="text-center">手拿包</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div id="progress" class="fixed-bottom border-top bg-light d-flex justify-content-between" style="height: 55px;">
+    <a href="#" class="btn btn-dark m-2">上一步</a>
+    <a href="#" class="btn btn-dark m-2">下一步</a>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script>
+    function handleClickItem() {
+      // console.log(event.target.parentNode);  // <div class="item col-4"> or <div class="row">
+      
+      // 只有在選到class="item"這行的話，才會進行這個（解決有時候會點到更外層的div的問題）
+      if (event.target.parentNode.classList.contains('item')) {
+        // 每次按下先清除其他item被選取的樣式
+        document.querySelectorAll('.item').forEach(itemElem => {
+          itemElem.children[0].classList.remove('shadow');
+          itemElem.children[1].classList.remove('text-secondary');
+        })
+
+        event.target.parentNode.children[0].classList.add('shadow');
+        event.target.parentNode.children[1].classList.add('text-secondary');
+      }
+    }
+    document.querySelectorAll('.item').forEach(itemElem => {
+      itemElem.onclick = handleClickItem;
+    })
+  </script>
+</body>
+
+</html>
