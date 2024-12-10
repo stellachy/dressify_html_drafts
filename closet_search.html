@@ -1,11 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <!-- <meta name="viewport" content="width=375, initial-scale=1.0"> -->
+  <!-- Bootstrap 5.3.3 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <style>
+    html {
+      font-size: 12px;
+    }
+
+    body {
+      min-width: 375px;
+    }
+
+    /* 調整字體大小 */
+     .text-xs {
+      font-size: 12px;
+    }
+    .text-s {
+      font-size: 14px;
+    }
+    .text-m {
+      font-size: 16px;
+    }
+    .text-l {
+      font-size: 18px;
+    }
+    .text-xl {
+      font-size: 20px;
+    }
+
+    header {
+      height: 50px;
+    }
+
+    nav {
+      height: 55px;
+    }
+
+    img {
+      object-fit: contain;
+    }
+
+    .md-18 {
+      font-size: 18px;
+    }
+
+    .material-symbols-outlined.md-32 {
+      font-size: 32px;
+    }
+  </style>
 </head>
+
 <body>
-  this is serach section for closet~
+  <header class="bg-warning pb-5 fixed-top">
+    <h1>Dressify Header</h1>
+  </header>
+  
+  <div class="py-5">
+    <!-- search bar(應有個overlay在closet的那個index.html) -->
+    <div class="container-fluid fixed-top bg-light py-3" style="top: 50px">
+      <div class="d-flex justify-content-between align-items-center pt-1">
+        <div>
+          <input class="form-control rounded-pill text-m" type="text" placeholder="白色襯衫" style="width: 320px;">
+        </div>
+
+        <div>
+          <img src="./icons/search.svg" style="width: 22px;" alt="search">
+        </div>
+      </div>
+    </div>
+
+    <!-- 空間補償，避免被 fixed-top 遮擋 -->
+    <div style="padding-top: 76px;"></div>
+
+    <div class="pt-2 pb-3 mb-3 bg-secondary bg-opacity-25" style="height: 250px;">
+      serach result // this block should appear w/ the search bar as an kinda like a modal!
+    </div>
+
+    <a href="./index.html">
+      <div class="bg-dark bg-opacity-25" style="height: 350px;">
+        this is an overlay back to index.html      
+      </div>
+    </a>
+    
+
+  </div>
+  <nav class="bg-warning pb-4 fixed-bottom">this is navigation bar</nav>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
 </body>
+
 </html>
