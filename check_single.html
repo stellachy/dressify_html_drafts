@@ -42,11 +42,10 @@
   </header>
 
   <div class="py-5">
-    <!-- body Single Products-->
     <!-- header -->
     <div class="fixed-top bg-light my-5">
       <div class="d-flex justify-content-between align-items-center border-bottom">
-        <div class="px-3 p-2 md-18"><b>單品ㄉ小名稱❤</b></div>
+        <div id="sTitle" class="px-3 p-2 md-18"><b>單品ㄉ小名稱❤</b></div>
 
         <a href="./index.html" class="px-3"><img src="icons/cross-circle.svg" style="width: 25px;" alt="cancel"></a>
       </div>
@@ -55,23 +54,27 @@
       </div>
     </div>
 
+    <!-- 空間補償，避免被 fixed-top 遮擋 -->
+    <div style="padding-top: 252px;"></div>
+
     <!-- input/select body for editing info -->
-    <div class="px-3 p-2 md-18 border-bottom d-flex justify-content-between" style="margin-top: 252px;">
+    <!-- 單品資訊header -->
+    <div class="px-3 p-2 md-18 border-bottom d-flex justify-content-between sticky-top">
       <div>
         <span class="pe-2">單品資訊</span>
         <img id="editIcon" class="align-middle pb-1 edited" src="icons/pencil.svg" alt="edit" style="width: 18px;">
       </div>
-      <div class="d-none editng">
+      <div class="d-none editing">
         <img id="cancelEditIcon" class="me-2" src="icons/cross.svg" alt="cancel" style="width: 18px;">
         <img id="confirmEditIcon" src="icons/check.svg" alt="confirm" style="width: 18px;">
       </div>
     </div>
 
-    <div class="container px-5 p-2" style="height: 220px; overflow-y: auto;">
+    <!-- 單品資訊content -->
+    <div class="container px-5 p-2" style="height: 270px; overflow-y: auto;">
 
-      <div class="mb-3 d-none editng">
+      <div class="mb-3 d-none editing">
         <label for="" class="form-label required">名稱</label>
-
         <input class="form-control" type="text" value="單品ㄉ小名稱❤" required>
       </div>
 
@@ -79,14 +82,73 @@
         <label for="" class="form-label required">類型</label>
         <input class="form-control text-center edited" type="text" value="長裙" disabled>
 
-        <input class="form-control d-none editng" type="text" value="長裙" required>
+        <select name="type" class="form-select text-center d-none editing" id="" required>
+          <option hidden>請選擇類型</option>
+
+          <optgroup label="外套">
+            <option value="">羽絨外套</option>
+            <option value="">羽絨外套</option>
+            <option value="">大衣外套</option>
+          </optgroup>
+          <optgroup label="襯衫">
+            <option value="">商務襯衫</option>
+            <option value="">休閒襯衫</option>
+            <option value="">Polo衫</option>
+          </optgroup>
+          <optgroup label="T-shirt">
+            <option value="">長袖</option>
+            <option value="">短袖</option>
+            <option value="">連帽</option>
+          </optgroup>
+          <optgroup label="其他">
+            <option value="">毛衣/針織</option>
+            <option value="">連身褲/裙</option>
+          </optgroup>
+
+          <optgroup label="褲子">
+            <option value="">牛仔褲</option>
+            <option value="">西裝褲</option>
+            <option value="">工裝褲</option>
+            <option value="">棉褲</option>
+            <option value="">九分褲</option>
+            <option value="">卡其褲</option>
+            <option value="">寬褲</option>
+            <option value="">短褲</option>
+          </optgroup>
+          <optgroup label="裙子">
+            <option value="" selected>長裙</option>
+            <option value="">短裙</option>
+          </optgroup>
+
+          <option value="">拖鞋/涼鞋</option>
+          <option value="">運動鞋</option>
+          <option value="">休閒鞋</option>
+          <option value="">高跟鞋</option>
+          <option value="">皮鞋</option>
+          <option value="">靴子</option>
+
+          <optgroup label="帽子">
+            <option value="">毛帽</option>
+            <option value="">棒球帽</option>
+            <option value="">漁夫帽</option>
+            <option value="">貝雷帽</option>
+            <option value="">草帽</option>
+            <option value="">紳士帽</option>
+          </optgroup>
+          <optgroup label="包包">
+            <option value="">後背包</option>
+            <option value="">側背包</option>
+            <option value="">手拿包</option>
+          </optgroup>
+
+        </select>
       </div>
 
       <div class="mb-3">
         <label for="" class="form-label">色系</label>
         <input class="form-control text-center edited" type="text" value="白色系" disabled>
 
-        <select name="" id="" class="form-select text-center d-none editng">
+        <select name="" id="" class="form-select text-center d-none editing">
           <option hidden>請選擇色系</option>
           <option value="">黑色系</option>
           <option value="" selected>白色系</option>
@@ -104,14 +166,14 @@
         <label for="" class="form-label">品牌</label>
         <input class="form-control text-center edited" type="text" value="uniqlo" disabled>
 
-        <input class="form-control text-center d-none editng" type="text" value="uniqlo">
+        <input class="form-control text-center d-none editing" type="text" value="uniqlo">
       </div>
 
       <div class="mb-3">
         <label for="" class="form-label">尺寸</label>
         <input class="form-control text-center edited" type="text" value="S" disabled>
 
-        <select name="" id="" class="form-select text-center d-none editng">
+        <select name="" id="" class="form-select text-center d-none editing">
           <option hidden>請選擇尺寸</option>
           <option value="">XXS</option>
           <option value="">XS</option>
@@ -125,11 +187,71 @@
 
     </div>
 
-
-    <div class="px-3 p-2 md-18 border-top border-bottom d-flex justify-content-between">
-      <div>我的穿搭</div>
-      <div>推薦穿搭</div>
+    <!-- 相關穿搭header -->
+    <div class="px-3 p-2 md-18 border-top border-bottom sticky-top bg-white">
+      <div class="d-flex justify-content-between">
+        <div id="sMy">我的穿搭</div>
+        <div id="sShare" class="text-secondary">推薦穿搭</div>
+      </div>
     </div>
+
+    <!-- 相關穿搭content -->
+    <!-- 我的穿搭 -->
+    <div id="sMyArea" class="container px-3" style="height: 275px; overflow-y: auto;">
+      <!-- 穿搭eg1. -->
+      <div class="border rounded mt-4 px-2 p-2 border-dark">
+        <strong class="text-secondary md-18">約會穿搭！</strong>
+        <div class="d-flex" style="width: 325px; overflow-x: auto;">
+          <div>
+            <img class="border rounded my-2 me-1" width="95px" src="./icons/items/item10.svg">
+          </div>
+
+          <div>
+            <img class="border rounded my-2 me-1" width="95px" src="./icons/items/item20.svg">
+          </div>
+
+          <div>
+            <img class="border rounded my-2 me-1" width="95px" src="./icons/items/item22.svg">
+          </div>
+
+          <div>
+            <img class="border rounded my-2 me-1" width="95px" src="./icons/items/item36.svg">
+          </div>
+        </div>
+      </div>
+
+      <!-- 穿搭eg2. -->
+      <div class="border rounded mt-4 px-2 p-2 border-dark">
+        <strong class="text-secondary md-18">小日常（這裡是輸入的穿搭的標題哦！）</strong>
+        <div class="d-flex" style="width: 325px; overflow-x: auto;">
+          <div>
+            <img class="border rounded my-2 me-1" width="95px" src="./icons/items/item8.svg">
+          </div>
+
+          <div>
+            <img class="border rounded my-2 me-1" width="95px" src="./icons/items/item20.svg">
+          </div>
+
+          <div>
+            <img class="border rounded my-2 me-1" width="95px" src="./icons/items/item24.svg">
+          </div>
+
+          <div>
+            <img class="border rounded my-2 me-1" width="95px" src="./icons/items/item29.svg">
+          </div>
+
+          <div>
+            <img class="border rounded my-2 me-1" width="95px" src="./icons/items/item34.svg">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 推薦穿搭 -->
+    <div id="sShareArea" class="container p-3 d-none">
+      這裡要放穿搭牆的相關照片！（請偷昱凱ㄉ！）
+    </div>
+
   </div>
 
   </div>
@@ -141,6 +263,7 @@
     crossorigin="anonymous"></script>
 
   <script>
+    // 處理編輯單品資訊的部分！
     function handleEdit() {
       // console.log(event.target);
 
@@ -149,8 +272,8 @@
         elem.classList.add('d-none');
       })
 
-      // 找到class='editng'的部分，並顯示出來
-      document.querySelectorAll('.editng').forEach(elem => {
+      // 找到class='editing'的部分，並顯示出來
+      document.querySelectorAll('.editing').forEach(elem => {
         elem.classList.remove('d-none');
       })
     }
@@ -158,34 +281,78 @@
     document.getElementById('editIcon').onclick = handleEdit;
 
     function handleCancelEdit() {
-      // 找到class='edited'的部分，並顯示出來
-      document.querySelectorAll('.edited').forEach(elem => {
-        elem.classList.remove('d-none');
-      })
+      if (confirm('確定放棄編輯？')) {  // 可以考慮使用bootstrap的modal？
+        // 找到class='edited'的部分，並顯示出來
+        document.querySelectorAll('.edited').forEach(elem => {
+          elem.classList.remove('d-none');
+        })
 
-      // 找到class='editng'的部分，讓他們消失
-      document.querySelectorAll('.editng').forEach(elem => {
-        elem.classList.add('d-none');
-      })
+        // 找到class='editing'的部分，讓他們消失
+        document.querySelectorAll('.editing').forEach(elem => {
+          elem.classList.add('d-none');
+        })
+      }
     }
 
     document.getElementById('cancelEditIcon').onclick = handleCancelEdit;
 
     function handleConfirmEdit() {
+      // 這裡一樣可以下if(confirm('確定完成編輯？')){}
       // 要多一個拿到上面editing中 user's input並改寫edited裡面的value！
+      const editing = document.querySelectorAll('.editing');
+      const edited = document.querySelectorAll('.edited');
+
+      const editedName = editing[1].children[1].value;
+      // const editedType = editing[2].querySelector('option[selected]').innerText; 這個不會跟著「選擇之後」做改變～～
+      const editedType = editing[2].options[editing[2].selectedIndex].text;
+      const editedColor = editing[3].options[editing[3].selectedIndex].text;
+      const editedBrand = editing[4].value;
+      const editedSize = editing[5].options[editing[5].selectedIndex].text;
+
+      // 把上面拿到的更改後的value放在input的value中（就是之後會render的地方～）
+      document.getElementById('sTitle').innerText = editedName;
+      edited[1].value = editedType;
+      edited[2].value = editedColor;
+      edited[3].value = editedBrand;
+      edited[4].value = editedSize;
 
       // 找到class='edited'的部分，並顯示出來
-      document.querySelectorAll('.edited').forEach(elem => {
+      edited.forEach(elem => {
         elem.classList.remove('d-none');
       })
 
-      // 找到class='editng'的部分，讓他們消失
-      document.querySelectorAll('.editng').forEach(elem => {
+      // 找到class='editing'的部分，讓他們消失
+      editing.forEach(elem => {
         elem.classList.add('d-none');
       })
     }
 
     document.getElementById('confirmEditIcon').onclick = handleConfirmEdit;
+
+    // 處理我的穿搭／推薦穿搭的隱藏、顯示
+    // -1 點擊「推薦穿搭」
+    function handleShare() {
+      // 更改標頭文字顏色
+      document.getElementById('sShare').classList.remove('text-secondary');  
+      document.getElementById('sMy').classList.add('text-secondary');
+
+      // 更改顯示的area
+      document.getElementById('sShareArea').classList.remove('d-none');  
+      document.getElementById('sMyArea').classList.add('d-none');
+    }
+    document.getElementById('sShare').onclick = handleShare;
+
+    // -2 點擊「我的穿搭」
+    function handleMy() {
+      // 更改標頭文字顏色
+      document.getElementById('sMy').classList.remove('text-secondary');  
+      document.getElementById('sShare').classList.add('text-secondary');
+
+      // 更改顯示的area
+      document.getElementById('sMyArea').classList.remove('d-none');  
+      document.getElementById('sShareArea').classList.add('d-none');
+    }
+    document.getElementById('sMy').onclick = handleMy;
   </script>
 </body>
 
