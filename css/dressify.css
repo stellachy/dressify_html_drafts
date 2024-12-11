@@ -1,0 +1,63 @@
+:root {
+  --color-base: #f9f8f4;
+  --color-second: #ebe3e0;
+  --color-highlight: #ae7a62;
+  --color-white: #ffffff;
+  --color-black: #3b3a38;
+}
+
+
+html {
+  font-size: 12px;
+}
+
+body {
+  min-width: 375px;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;  /* 设置body的高度为视口高度 */
+  margin: auto;  /* 移除默认的margin */
+}
+
+/* 調整字體大小 */
+.text-xs {
+  font-size: 12px;
+}
+
+.text-s {
+  font-size: 14px;
+}
+
+.text-m {
+  font-size: 16px;
+}
+
+.text-l {
+  font-size: 18px;
+}
+
+.text-xl {
+  font-size: 20px;
+}
+
+header {
+  height: 50px;
+  background-color: var(--color-second);
+}
+
+nav {
+  height: 55px;
+}
+
+header {
+  flex: 0 1 auto; /* 固定大小 */
+}
+
+footer {
+  flex: 0 1 auto; /* 固定大小 */
+}
+.content {
+  flex: 1 1 auto; /* 讓 content部分 填滿 剩餘空間 */
+  padding: 20px;
+  overflow-y: auto; /* 內容太多會有垂直滾動的效果 */
+}

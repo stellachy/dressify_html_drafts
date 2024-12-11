@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap 5.3.3 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="./css/dressify.css">
+  <link rel="stylesheet" href="https://unpkg.com/cropperjs/dist/cropper.css">
+  <style>
+    img {
+      object-fit: contain;
+    }
+
+    #progress {
+      background-color: var(--color-second);
+    }
+
+    .btn {
+      background-color: var(--color-highlight);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="root">
+    <!-- header -->
+    <header class="navbar fixed-top">
+      <div class="container-fluid d-flex justify-content-between align-items-center">
+        <div class="img">
+          <a href="./modify.html"><img src="./icons/setting.svg" width="30px" alt="setting"></a>
+        </div>
+        <span class="text-xl"><b>Dressify</b></span>
+        <div></div>
+      </div>
+    </header>
+
+    <!-- 空間補償，避免被 fixed-top 遮擋 -->
+    <div style="padding-top: 50px;"></div>
+
+    <div class="m-2">
+      <input type="file" id="fileInput" />
+      <button id="cropButton">done crop</button>
+    </div>
+
+
+    <div class="text-center py-5">
+      <img id="previewImg" class="border" width="100px" height="100px" src="#" alt="preview image">
+
+      <img id="cropImg" class="border" width="100px" height="100px" src="#" alt="cropped image">
+      
+    </div>
+
+
+    <div id="progress" class="fixed-bottom border-top d-flex justify-content-between" style="height: 55px;">
+      <a href="#" class="btn m-2 rounded-pill">上一步</a>
+      <a href="#" class="btn m-2 rounded-pill">下一步</a>
+    </div>
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script type="module">
+    import Cropper from 'https://unpkg.com/cropperjs/dist/cropper.esm.js';
+    const fileInput = document.getElementById('fileInput');
+    const imgPreview = document.getElementById('previewImg');
+    const cropButton = document.getElementById('cropButton');
+
+    let cropper;
+
+    fileInput.addEventListener('change', () => {
+      // console.log(event.target.files[0]);
+      const file = event.target.files[0];
+      const reader = new FileReader();
+
+      reader.onload = (event) => {
+        // console.log(event.target.result);  // data:image/png;base64,iVBORw0KGgoAAA...
+        imgPreview.src = event.target.result;  // 完成檔案呈現
+
+        if (cropper) {
+          cropper.destroy();
+        }
+
+        cropper = new Cropper(imgPreview, {
+          aspectRatio: 1,  // 剪裁框的寬高比
+          viewMode: 1,  // 剪裁框的模式
+          dragMode: 'move',  // 剪裁框的拖曳方式
+          cropBoxResizable: false  // 剪裁框是否可以改變大小
+        })
+      }
+
+      reader.readAsDataURL(file);
+    })
+
+    cropButton.addEventListener('click', () => {
+      if (cropper) {
+        const croppedImg = cropper.getCroppedCanvas();  // 取得剪裁後的canvas
+        const imgCrop = document.getElementById('cropImg');  // 取得畫面上cropImg位置的部分
+
+        if (!croppedImg) {
+          console.error('Canvas is empty or not properly initialized!');
+          return;
+        }  // 確認是否完整拿到裁切後的img～
+
+        const croppedImgURL = croppedImg.toDataURL('image/png');  // 亦可指定 'image/jpeg' 等格式
+        // console.log(croppedImgURL);  // 拿到base64格式 data:image/png;base64,iVBORw0KG
+
+        // imgPreview.src = croppedImgURL;  // 沒辦法蓋回原本的地方喲！ＱＱ
+
+        imgCrop.src = croppedImgURL;
+
+      } else {
+        console.error('cropping is not initialized!')
+      }
+    })
+  </script>
+</body>
+
+</html>
