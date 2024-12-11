@@ -19,6 +19,10 @@
     }
 
     .btn {
+      background-color: var(--color-base);
+      border: 2px solid var(--color-highlight);
+    }
+    .btn:focus {
       background-color: var(--color-highlight);
     }
   </style>
@@ -40,17 +44,19 @@
     <!-- 空間補償，避免被 fixed-top 遮擋 -->
     <div style="padding-top: 50px;"></div>
 
-    <div class="m-2">
+    <div class="m-3">
       <input type="file" id="fileInput" />
-      <button id="cropButton">done crop</button>
+    </div>
+    <div class="m-3 d-flex flex-row-reverse">
+      <button id="cropButton" class="btn rounded-pill mx-1">完成裁切</button>
+      <button id="cropAgain" class="btn rounded-pill">重新裁切</button>
     </div>
 
+    <div class="text-center py-3">
+      <img id="previewImg" class="border d-none" width="300px" height="400px" src="#" alt="preview image">
 
-    <div class="text-center py-5">
-      <img id="previewImg" class="border" width="100px" height="100px" src="#" alt="preview image">
+      <img id="cropImg" class="border d-none rounded" width="300px" height="400px" src="#" alt="cropped image">
 
-      <img id="cropImg" class="border" width="100px" height="100px" src="#" alt="cropped image">
-      
     </div>
 
 
@@ -69,6 +75,7 @@
     const fileInput = document.getElementById('fileInput');
     const imgPreview = document.getElementById('previewImg');
     const cropButton = document.getElementById('cropButton');
+    const cropAgain = document.getElementById('cropAgain');
 
     let cropper;
 
@@ -79,6 +86,7 @@
 
       reader.onload = (event) => {
         // console.log(event.target.result);  // data:image/png;base64,iVBORw0KGgoAAA...
+        imgPreview.classList.remove('d-none');
         imgPreview.src = event.target.result;  // 完成檔案呈現
 
         if (cropper) {
@@ -86,7 +94,7 @@
         }
 
         cropper = new Cropper(imgPreview, {
-          aspectRatio: 1,  // 剪裁框的寬高比
+          aspectRatio: 0.75,  // 剪裁框的寬高比
           viewMode: 1,  // 剪裁框的模式
           dragMode: 'move',  // 剪裁框的拖曳方式
           cropBoxResizable: false  // 剪裁框是否可以改變大小
@@ -111,11 +119,22 @@
 
         // imgPreview.src = croppedImgURL;  // 沒辦法蓋回原本的地方喲！ＱＱ
 
+        // imgPreview.classList.add('d-none');
+        document.querySelector('.cropper-container').classList.add('d-none');
+        imgCrop.classList.remove('d-none');
         imgCrop.src = croppedImgURL;
 
       } else {
         console.error('cropping is not initialized!')
       }
+    })
+
+    cropAgain.addEventListener('click', () => {
+      const imgCrop = document.getElementById('cropImg');
+
+      document.querySelector('.cropper-container').classList.remove('d-none');
+      imgPreview.classList.remove('d-none');
+      imgCrop.classList.add('d-none');
     })
   </script>
 </body>
